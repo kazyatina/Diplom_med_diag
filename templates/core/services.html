@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Services</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="CareMed demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/styles/bootstrap4/bootstrap.min.css">
+    <link href="/static/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/services.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/services_responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+
+<div class="super_container">
+
+    {%include 'header.html'%}
+
+    <!-- Home -->
+
+    <div class="home">
+        <div class="home_background parallax-window" data-parallax="scroll" data-image-src="/static/images/services.jpg"
+             data-speed="0.8"></div>
+        <div class="home_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content">
+                            <div class="home_title"><span>CareMed</span> Услуги</div>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{% url 'core:home' %}">Главная</a></li>
+                                    <li>Услуги</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+
+    <div class="services">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section_title"><h2>Услуги нашего центра</h2></div>
+                </div>
+            </div>
+            <div class="row services_row">
+                <!-- Service -->
+                <div class="col-lg-4 col-md-6 service_col">
+                    <div class="service text-center trans_200"
+                         data-bs-toggle="modal"
+                         data-bs-target="#serviceModal"
+                         style="cursor: pointer;">
+                        <div><img src="/static/images/ser_1.jpg" class="card-img-top"
+                                  alt=""
+                                  style="height: 200px; object-fit: contain;">
+                        </div>
+                        <div class="service_title trans_200">Бесплатные осмотры</div>
+                        <div class="service_text">
+                            <p>Все граждане РФ с полисом ОМС могут обратиться в наш центр, чтобы пройти базовый
+                                осмотр у терапевта и сдать базовые анализы.</p>
+                        </div>
+                        <div class="text-center mt-3">
+                              <span class="service-more-link"
+                                    style="color: #20d34a; font-size: 1.25rem; font-weight: bold;">
+                                Подробнее
+                              </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service -->
+                <div class="col-lg-4 col-md-6 service_col">
+                    <div class="service text-center trans_200"
+                         data-bs-toggle="modal"
+                         data-bs-target="#serviceModal2"
+                         style="cursor: pointer;">
+                        <div><img src="/static/images/screening.jpg" class="card-img-top"
+                                  alt=""
+                                  style="height: 200px; object-fit: contain;">
+                        </div>
+                        <div class="service_title trans_200">Скрининг тесты</div>
+                        <div class="service_text">
+                            <p>Процедуры, которые помогают выявить потенциальные заболевания у людей, не имеющих
+                                симптомов болезни. Цель — снизить риск заболевания.</p>
+                        </div>
+                        <div class="text-center mt-3">
+                              <span class="service-more-link"
+                                    style="color: #20d34a; font-size: 1.25rem; font-weight: bold;">
+                                Подробнее
+                              </span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Service -->
+                <div class="col-lg-4 col-md-6 service_col">
+                    <div class="service text-center trans_200"
+                         data-bs-toggle="modal"
+                         data-bs-target="#serviceModal3"
+                         style="cursor: pointer;">
+                        <div><img src="/static/images/uzi.jpg" class="card-img-top"
+                                  alt=""
+                                  style="height: 200px; object-fit: contain;">
+                        </div>
+                        <div class="service_title trans_200">Рентген, КТ, МРТ, УЗИ</div>
+                        <div class="service_text">
+                            <p>Использование технологий визуализации для точной диагностики заболеваний и
+                                мониторинга состояния пациентов с внутренними повреждениями.</p>
+                        </div>
+                        <div class="text-center mt-3">
+                              <span class="service-more-link"
+                                    style="color: #20d34a; font-size: 1.25rem; font-weight: bold;">
+                                Подробнее
+                              </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service -->
+                <div class="col-lg-4 col-md-6 service_col">
+                    <div class="service text-center trans_200"
+                         data-bs-toggle="modal"
+                         data-bs-target="#serviceModal4"
+                         style="cursor: pointer;">
+                        <div><img src="/static/images/stoma.jpg" class="card-img-top"
+                                  alt=""
+                                  style="height: 200px; object-fit: contain;">
+                        </div>
+                        <div class="service_title trans_200">Стоматология</div>
+                        <div class="service_text">
+                            <p>Профилактика, диагностика и лечение заболеваний полости рта, зубов, челюстей и
+                                связанных с ними структур.</p>
+                        </div>
+                        <div class="text-center mt-3">
+                              <span class="service-more-link"
+                                    style="color: #20d34a; font-size: 1.25rem; font-weight: bold;">
+                                Подробнее
+                              </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service -->
+                <div class="col-lg-4 col-md-6 service_col">
+                    <div class="service text-center trans_200"
+                         data-bs-toggle="modal"
+                         data-bs-target="#serviceModal5"
+                         style="cursor: pointer;">
+                        <div><img src="/static/images/pediator.jpg" class="card-img-top"
+                                  alt=""
+                                  style="height: 200px; object-fit: contain;">
+                        </div>
+                        <div class="service_title trans_200">Неонатология</div>
+                        <div class="service_text">
+                            <p>В нашем центре работают прекрасные неонатологи, которые позаботятся о ваших
+                                малышах.</p>
+                        </div>
+                        <div class="text-center mt-3">
+                              <span class="service-more-link"
+                                    style="color: #20d34a; font-size: 1.25rem; font-weight: bold;">
+                                Подробнее
+                              </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service -->
+                <div class="col-lg-4 col-md-6 service_col">
+                    <div class="service text-center trans_200"
+                         data-bs-toggle="modal"
+                         data-bs-target="#serviceModal6"
+                         style="cursor: pointer;">
+                        <div><img src="/static/images/analiz.jfif" class="card-img-top"
+                                  alt=""
+                                  style="height: 200px; object-fit: contain;">
+                        </div>
+                        <div class="service_title trans_200">Анализы</div>
+                        <div class="service_text">
+                            <p>К вашим услугам клинико-диагностическая лаборатория с большим выбором услуг.</p>
+                        </div>
+                        <div class="text-center mt-3">
+                              <span class="service-more-link"
+                                    style="color: #20d34a; font-size: 1.25rem; font-weight: bold;">
+                                Подробнее
+                              </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок для добавления услуг из админки -->
+                <!--                {% for service in services %}-->
+                <!--                <div class="col-lg-4 col-md-6 service_col">-->
+                <!--                    <div class="service text-center trans_200"-->
+                <!--                         data-bs-toggle="modal"-->
+                <!--                         data-bs-target="#serviceModal{{ service.id }}"-->
+                <!--                         style="cursor: pointer;">-->
+                <!--                                        <div><img src="#" class="card-img-top"-->
+                <!--                                                                       alt="{{ service.title }}"-->
+                <!--                                                                       style="height: 200px; object-fit: contain;">-->
+                <!--                                        </div>-->
+                <!--                        <div class="service_title trans_200">{{ service.title }}</div>-->
+                <!--                        <div class="service_text">-->
+                <!--                            <p>{{ service.description }}</p>-->
+                <!--                        </div>-->
+                <!--                        <div class="service_title trans_200">{{ service.price }} руб.</div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+                <!-- Модальное окно для услуг из админки -->
+                <!--                <div class="modal fade" id="serviceModal{{ service.id }}" tabindex="-1" aria-labelledby="serviceModalLabel{{ service.id }}"-->
+                <!--                     aria-hidden="true">-->
+                <!--                    <div class="modal-dialog modal-lg">-->
+                <!--                        <div class="modal-content">-->
+                <!--                            <div class="modal-header">-->
+                <!--                                <h5 class="modal-title" id="serviceModalLabel{{ service.id }}">{{ service.title }}</h5>-->
+                <!--                                <button type="button" class="btn-close" data-bs-dismiss="modal"-->
+                <!--                                        aria-label="Close"></button>-->
+                <!--                            </div>-->
+                <!--                            <div class="modal-body">-->
+                <!--                                <p>{{ service.description }}</p>-->
+                <!--                                <p><strong>Что входит в услугу:</strong></p>-->
+                <!--                                <ul>-->
+                <!--                                    <li>{{ service.full_description }}</li>-->
+                <!--                                </ul>-->
+                <!--                                <p><strong>Необходимые документы:</strong> паспорт и полис ОМС.</p>-->
+                <!--                            </div>-->
+                <!--                            <div class="modal-footer">-->
+                <!--                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>-->
+                <!--                                <button type="button" class="btn btn-primary"-->
+                <!--                                        onclick="window.location.href='{% url 'appointments:create' %}'">Записаться на-->
+                <!--                                    приём-->
+                <!--                                </button>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                {% empty %}-->
+                <!--                <div class="col-12">-->
+                <!--                    <p class="text-muted">Услуги пока не добавлены в базу данных.</p>-->
+                <!--                </div>-->
+                <!--                {% endfor %}-->
+            </div>
+        </div>
+    </div>
+    <!-- Модальное окно для услуги -->
+    <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="serviceModalLabel">Бесплатные осмотры</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Все граждане РФ с полисом ОМС могут обратиться в наш центр, чтобы пройти базовый осмотр у
+                        терапевта и сдать базовые анализы.</p>
+                    <p><strong>Что входит в бесплатный осмотр:</strong></p>
+                    <ul>
+                        <li>Консультация терапевта</li>
+                        <li>Измерение давления и температуры</li>
+                        <li>Общий анализ крови</li>
+                        <li>ЭКГ (по показаниям)</li>
+                    </ul>
+                    <p><strong>Необходимые документы:</strong> паспорт и полис ОМС.</p>
+                    <div class="alert alert-info mt-4">
+                        <h6 class="mb-1">
+                            <strong>Цена:</strong>
+                        </h6>
+                        <p class="fs-4 fw-bold mb-0">
+                            От 500 ₽ за базовый анализ, комплексные программы от 3 000 ₽
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn"
+                            style="background-color: #20d34a; border-color: #20d34a; color: white;"
+                            onclick="window.location.href='{% url 'appointments:create' %}'">
+                        Записаться на приём
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="serviceModal2" tabindex="-1" aria-labelledby="serviceModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="serviceModalLabel2">Скрининг тесты</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Процедуры, которые помогают выявить потенциальные заболевания у людей без симптомов. Цель —
+                        снизить риск заболевания на ранней стадии.</p>
+                    <ul>
+                        <li>Общий анализ крови</li>
+                        <li>Анализ на глюкозу</li>
+                        <li>ЭКГ</li>
+                        <li>Флюорография</li>
+                    </ul>
+                    <p><strong>Необходимые документы:</strong> паспорт и полис ОМС.</p>
+                    <div class="alert alert-info mt-4">
+                        <h6 class="mb-1">
+                            <strong>Цена:</strong>
+                        </h6>
+                        <p class="fs-4 fw-bold mb-0"> От 1 500 ₽</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn"
+                            style="background-color: #20d34a; border-color: #20d34a; color: white;"
+                            onclick="window.location.href='{% url 'appointments:create' %}'">
+                        Записаться на приём
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="serviceModal3" tabindex="-1" aria-labelledby="serviceModalLabel3"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="serviceModalLabel3">Рентген, КТ, МРТ, УЗИ</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Использование технологий визуализации для точной диагностики заболеваний и мониторинга
+                        состояния
+                        пациентов.</p>
+                    <ul>
+                        <li>Рентген — быстрое исследование костей и лёгких</li>
+                        <li>КТ — детальная 3D‑визуализация</li>
+                        <li>МРТ — исследование мягких тканей</li>
+                        <li>УЗИ — безопасный метод для внутренних органов</li>
+                    </ul>
+                    <p><strong>Необходимые документы:</strong> паспорт и полис ОМС.</p>
+                    <div class="alert alert-info mt-4">
+                        <h6 class="mb-1">
+                            <strong>Цена:</strong>
+                        </h6>
+                        <p class="fs-4 fw-bold mb-0"> От 2 000 ₽ (в зависимости от вида исследования)</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn"
+                            style="background-color: #20d34a; border-color: #20d34a; color: white;"
+                            onclick="window.location.href='{% url 'appointments:create' %}'">
+                        Записаться на приём
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для стоматологии (serviceModal4) -->
+    <div class="modal fade" id="serviceModal4" tabindex="-1" aria-labelledby="serviceModalLabel4"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="serviceModalLabel4">Стоматология</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Профилактика, диагностика и лечение заболеваний полости рта, зубов, челюстей и связанных
+                        с ними
+                        структур.</p>
+                    <p><strong>Наши услуги:</strong></p>
+                    <ul>
+                        <li>Профилактический осмотр и гигиена</li>
+                        <li>Лечение кариеса и его осложнений</li>
+                        <li>Протезирование и имплантация</li>
+                        <li>Ортодонтия (исправление прикуса)</li>
+                        <li>Эстетическая стоматология</li>
+                    </ul>
+                    <p><strong>Преимущества:</strong> современное оборудование, опытные врачи, безболезненное
+                        лечение.
+                    </p>
+                    <p><strong>Необходимые документы:</strong> паспорт и полис ОМС.</p>
+                    <div class="alert alert-info mt-4">
+                        <h6 class="mb-1">
+                            <strong>Цена:</strong>
+                        </h6>
+                        <p class="fs-4 fw-bold mb-0"> От 1 000 ₽ (осмотр), от 5 000 ₽ (лечение)</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn"
+                            style="background-color: #20d34a; border-color: #20d34a; color: white;"
+                            onclick="window.location.href='{% url 'appointments:create' %}'">
+                        Записаться на приём
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для неонатологии (serviceModal5) -->
+    <div class="modal fade" id="serviceModal5" tabindex="-1" aria-labelledby="serviceModalLabel5"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="serviceModalLabel5">Неонатология</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>В нашем центре работают прекрасные неонатологи, которые позаботятся о ваших
+                        малышах.</p>
+                    <p><strong>Что мы предлагаем:</strong></p>
+                    <ul>
+                        <li>Наблюдение за новорождёнными</li>
+                        <li>Выхаживание недоношенных детей</li>
+                        <li>Диагностика врождённых патологий</li>
+                        <li>Консультации для родителей</li>
+                        <li>Поддержка грудного вскармливания</li>
+                    </ul>
+                    <p><strong>Почему выбирают нас:</strong> современная аппаратура, индивидуальный подход,
+                        круглосуточное наблюдение.</p>
+                    <p><strong>Необходимые документы:</strong> паспорт и полис ОМС.</p>
+                    <div class="alert alert-info mt-4">
+                        <h6 class="mb-1">
+                            <strong>Цена:</strong>
+                        </h6>
+                        <p class="fs-4 fw-bold mb-0"> От 3 000 ₽ за первичный приём</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть
+                    </button>
+                    <button type="button" class="btn"
+                            style="background-color: #20d34a; border-color: #20d34a; color: white;"
+                            onclick="window.location.href='{% url 'appointments:create' %}'">
+                        Записаться на приём
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для анализов (serviceModal6) -->
+    <div class="modal fade" id="serviceModal6" tabindex="-1" aria-labelledby="serviceModalLabel6"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="serviceModalLabel6">Анализы</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>К вашим услугам клинико‑диагностическая лаборатория с большим выбором услуг.</p>
+                    <p><strong>Доступные анализы:</strong></p>
+                    <ul>
+                        <li>Общий анализ крови</li>
+                        <li>Биохимический анализ крови</li>
+                        <li>Гормональные исследования</li>
+                        <li>Анализы на инфекции</li>
+                        <li>Иммунологические тесты</li>
+                        <li>Генетические исследования</li>
+                    </ul>
+                    <p><strong>Преимущества лаборатории:</strong> быстрые результаты, высокая точность,
+                        комфортные
+                        условия сдачи.</p>
+                    <p><strong>Необходимые документы:</strong> паспорт и полис ОМС.</p>
+                    <div class="alert alert-info mt-4">
+                        <h6 class="mb-1">
+                            <strong>Цена:</strong>
+                        </h6>
+                        <p class="fs-4 fw-bold mb-0"> От 500 ₽ за базовый анализ, комплексные программы
+                            от 3 000 ₽</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Закрыть
+                    </button>
+                    <button type="button" class="btn"
+                            style="background-color: #20d34a; border-color: #20d34a; color: white;"
+                            onclick="window.location.href='{% url 'appointments:create' %}'">
+                        Записаться на приём
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Прайс‑лист -->
+<div class="services">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title">
+                    <h2>Прайс‑лист услуг</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Услуга</th>
+                        <th scope="col" class="text-end">Цена</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Бесплатные осмотры (базовый осмотр у терапевта и анализы)</td>
+                        <td class="text-end">От 500 ₽ за базовый анализ, комплексные программы от 3 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>Скрининг‑тесты (общий анализ крови, глюкоза, ЭКГ, флюорография)</td>
+                        <td class="text-end">От 1 500 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>Рентген</td>
+                        <td class="text-end">От 2 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>КТ (компьютерная томография)</td>
+                        <td class="text-end">От 4 500 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>МРТ (магнитно‑резонансная томография)</td>
+                        <td class="text-end">От 5 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>УЗИ (ультразвуковое исследование)</td>
+                        <td class="text-end">От 2 500 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>Профилактический осмотр и гигиена (стоматология)</td>
+                        <td class="text-end">От 1 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>Лечение кариеса (стоматология)</td>
+                        <td class="text-end">От 5 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>Протезирование и имплантация (стоматология)</td>
+                        <td class="text-end">По запросу</td>
+                    </tr>
+                    <tr>
+                        <td>Первичный приём неонатолога</td>
+                        <td class="text-end">От 3 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>Общий анализ крови</td>
+                        <td class="text-end">От 500 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>Биохимический анализ крови</td>
+                        <td class="text-end">От 1 200 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>Гормональные исследования</td>
+                        <td class="text-end">От 800 ₽ за анализ</td>
+                    </tr>
+                    <tr>
+                        <td>Анализы на инфекции</td>
+                        <td class="text-end">От 700 ₽ за анализ</td>
+                    </tr>
+                    <tr>
+                        <td>Иммунологические тесты</td>
+                        <td class="text-end">От 1 500 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>Генетические исследования</td>
+                        <td class="text-end">По запросу</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Примечание -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <p><strong>Примечание:</strong> Цены указаны ориентировочно. Точную стоимость уточняйте при записи
+                        на приём. Для граждан РФ с полисом ОМС часть услуг предоставляется бесплатно.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<script src="/static/styles/bootstrap4/popper.js"></script>
+<script src="/static/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="/static/plugins/easing/easing.js"></script>
+<script src="/static/plugins/parallax-js-master/parallax.min.js"></script>
+<script src="/static/js/services.js"></script>
+</body>
+</html>

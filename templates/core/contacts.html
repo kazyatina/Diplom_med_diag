@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="CareMed demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/styles/bootstrap4/bootstrap.min.css">
+    <link href="/static/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/contact.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/contact_responsive.css">
+</head>
+<body>
+
+<div class="super_container">
+
+    {%include 'header.html'%}
+
+    <!-- Home -->
+
+    <div class="home">
+        <div class="home_background parallax-window" data-parallax="scroll" data-image-src="/static/images/contact.jpg"
+             data-speed="0.8"></div>
+        <div class="home_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content">
+                            <div class="home_title"><span>CareMed</span> Контакты</div>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{% url 'core:home' %}">Главная</a></li>
+                                    <li>Контакты</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+
+    <div class="contact">
+        <div class="container">
+            <div class="row">
+
+                <!-- Contact Info -->
+                <div class="col-lg-6">
+                    <div class="section_title"><h2>Свяжитесь с нами</h2></div>
+                    <div class="contact_text">
+                        <p>Быстрая запись на приём: позвоните сейчас или заполните форму онлайн.</p>
+                        <p>Удобное время приёма и оперативная связь.</p>
+                        <p>Квалифицированные врачи ждут вас</p>
+                    </div>
+                    <ul class="contact_about_list">
+                        <li>
+                            <div class="contact_about_icon"><img src="/static/images/phone-call.svg" alt=""></div>
+                            <span>+7 495 111 222 333</span></li>
+                        <li>
+                            <div class="contact_about_icon"><img src="/static/images/envelope.svg" alt=""></div>
+                            <span>info@caremed.com</span></li>
+                        <li>
+                            <div class="contact_about_icon"><img src="/static/images/placeholder.svg" alt=""></div>
+                            <span>г.Москва, ул.Тверская, д.13 / метро Тверская</span></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-lg-6 ">
+                    <div class="section_title"><h3>Обратная связь</h3></div>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="{{ form.name.id_for_label }}" class="form-label">Ваше имя *</label>
+                            {{form.name}}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.phone.id_for_label }}" class="form-label">Телефон *</label>
+                            {{form.phone}}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.message.id_for_label }}" class="form-label">Сообщение</label>
+                            {{form.message}}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row map_row">
+                <div class="col">
+
+                    <!-- Contact Map -->
+
+                    <div class="contact_map">
+
+                        <!-- Map -->
+
+
+                        <div class="map">
+                            <div id="yandex_map" class="yandex_map">
+                                <div class="map_container">
+                                    <script type="text/javascript" charset="utf-8" async
+                                            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A610ff89bfc92503e6a718d0b97b3c13b6335321152c8fdedd922ae77fbacaf5b&amp;width=1083&amp;height=543&amp;lang=ru_RU&amp;scroll=true"></script>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Working Hours -->
+                        <div class="box working_hours">
+                            <div class="box_icon d-flex flex-column align-items-start justify-content-center">
+                                <div style="width:29px; height:29px;"><img src="/static/images/alarm-clock.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="box_title">Часы работы</div>
+                            <div class="working_hours_list">
+                                <ul>
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div>Понедельник - Пятница</div>
+                                        <div class="ml-auto">8.00 – 19.00</div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div>Суббота</div>
+                                        <div class="ml-auto">9.30 – 17.00</div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-center justify-content-start">
+                                        <div>Воскресенье</div>
+                                        <div class="ml-auto">9.30 – 15.00</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+</div>
+
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<script src="/static/styles/bootstrap4/popper.js"></script>
+<script src="/static/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="/static/plugins/easing/easing.js"></script>
+<script src="/static/plugins/parallax-js-master/parallax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+<script src="/static/js/contact.js"></script>
+</body>
+</html>

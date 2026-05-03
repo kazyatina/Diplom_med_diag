@@ -1,0 +1,401 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{%block content%}
+
+<div class="super_container">
+    <!-- Menu -->
+
+    <div class="menu_container menu_mm">
+
+        <!-- Menu Close Button -->
+        <div class="menu_close_container">
+            <div class="menu_close"></div>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="menu_inner menu_mm">
+            <div class="menu menu_mm">
+                <ul class="menu_list menu_mm">
+                    <li class="menu_item menu_mm">
+                        <a class="nav-link" href="{% url 'core:home' %}">Главная</a>
+                    </li>
+                    <li class="menu_item menu_mm">
+                        <a class="nav-link" href="{% url 'core:about' %}">О центре</a>
+                    </li>
+                    <li class="menu_item menu_mm">
+                        <a class="nav-link" href="{% url 'core:services' %}">Услуги</a>
+                    </li>
+                    <li class="menu_item menu_mm">
+                        <a class="nav-link" href="{% url 'core:contacts' %}">Контакты</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="menu_item menu_mm">
+                        <a class="nav-link" href="{% url 'accounts:profile' %}">Личный кабинет</a>
+                    </li>
+                    <li class="menu_item menu_mm">
+                        <a class="nav-link" href="{% url 'accounts:logout' %}?next=/">Выйти</a>
+                    </li>
+                    {% else %}
+                    <li class="menu_item menu_mm">
+                        <a class="nav-link" href="{% url 'accounts:login' %}">Войти</a>
+                    </li>
+                    <li class="menu_item menu_mm">
+                        <a class="nav-link" href="{% url 'accounts:register' %}">Регистрация</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="menu_extra">
+                <div class="menu_appointment"><a href="{% url 'appointments:create' %}">Запишитесь на
+                    прием</a></div>
+                <div class="menu_emergencies">Скорая помощь: 112</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home -->
+
+    <div class="home">
+        <div class="home_slider_container">
+            <!-- Home Slider -->
+            <div class="owl-carousel owl-theme home_slider">
+
+                <!-- Slider Item -->
+                <div class="owl-item">
+                    <div class="home_slider_background"
+                         style="background-image:url('/static/images/home_background_1.jpg')"></div>
+                    <div class="home_content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="home_content_inner">
+                                        <div class="home_title"><h1>Медицинская диагностика с заботой</h1></div>
+                                        <div class="home_text">
+                                            <p>«CareMed» - это многопрофильный медицинский центр, который оказывает
+                                                широкий спектр услуг по диагностике, лечению и реабилитации
+                                                пациентов.</p>
+                                        </div>
+                                        <div class="button home_button">
+                                            <a href="{% url 'core:about' %}">Подробнее</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Progress -->
+            <div class="home_slider_progress"></div>
+        </div>
+    </div>
+
+
+    <!-- 3 Boxes -->
+
+    <div class="boxes">
+        <div class="container">
+            <div class="row">
+
+                <!-- Box -->
+                <div class="col-lg-4 box_col">
+                    <div class="box working_hours">
+                        <div class="box_icon d-flex flex-column align-items-start justify-content-center">
+                            <div style="width:29px; height:29px;"><img src="/static/images/alarm-clock.svg" alt=""></div>
+                        </div>
+                        <div class="box_title">Часы работы</div>
+                        <div class="working_hours_list">
+                            <ul>
+                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                    <div>Понедельник - Пятница</div>
+                                    <div class="ml-auto">8.00 – 19.00</div>
+                                </li>
+                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                    <div>Суббота</div>
+                                    <div class="ml-auto">9.30 – 17.00</div>
+                                </li>
+                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                    <div>Воскресенье</div>
+                                    <div class="ml-auto">9.30 – 15.00</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box -->
+                <div class="col-lg-4 box_col">
+                    <div class="box box_appointments">
+                        <div class="box_icon d-flex flex-column align-items-start justify-content-center">
+                            <div style="width: 29px; height:29px;"><img src="/static/images/phone-call.svg" alt=""></div>
+                        </div>
+                        <div class="box_title">Запись на прием в центре</div>
+                        <div class="box_phone">+7 495 111 222 333</div>
+                        <div class="box_text">Адрес: г.Москва, ул.Тверская, д.13
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box -->
+                <div class="col-lg-4 box_col">
+                    <div class="box box_emergency">
+                        <div class="box_icon d-flex flex-column align-items-start justify-content-center">
+                            <div style="width: 37px; height:37px; margin-left:-4px;"><img src="/static/images/bell.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="box_title">Неотложная помощь</div>
+                        <div class="box_phone">103 или 112</div>
+                        <div class="box_emergency_text">Если произошла ситуация опасная для жизни</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+
+    <div class="about">
+        <div class="container">
+            <div class="row row-lg-eq-height">
+
+                <!-- About Content -->
+                <div class="col-lg-7">
+                    <div class="about_content">
+                        <div class="section_title"><h2>40 лет оказываем медицинскую помощь</h2></div>
+                        <div class="about_text">
+                            <p>Одно из самых крупных медицинских учреждений нашего города, объединяющее многопрофильный
+                                стационар, консультативно-диагностический центр, научно-исследовательские институты и
+                                кафедры постдипломного образования. Среди наших пациентов спортсмены олимпийской сборной
+                                и космонавты, а также граждане со всей России и иностранцы, которым необходимо
+                                медицинское обслуживание.</p>
+                        </div>
+                        <div class="button about_button">
+                            <a href="{% url 'core:about' %}">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Image -->
+                <div class="col-lg-5">
+                    <div class="about_image"><img src="/static/images/about.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Departments -->
+
+    <div class="departments">
+        <div class="departments_background parallax-window" data-parallax="scroll"
+             data-image-src="/static/images/departments.jpg" data-speed="0.8"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section_title section_title_light"><h2>Отделения нашего центра</h2></div>
+                </div>
+            </div>
+            <div class="row departments_row row-md-eq-height">
+
+                <!-- Department -->
+                <div class="col-lg-3 col-md-6 dept_col">
+                    <div class="dept">
+                        <div class="dept_image"><img src="/static/images/dept_1.jpg" alt=""></div>
+                        <div class="dept_content text-center">
+                            <div class="dept_title">Хирургия</div>
+                            <div class="dept_subtitle">Доктор Роман Николаевич Хрущ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Department -->
+                <div class="col-lg-3 col-md-6 dept_col">
+                    <div class="dept">
+                        <div class="dept_image"><img src="/static/images/dept_2.jpg" alt=""></div>
+                        <div class="dept_content text-center">
+                            <div class="dept_title">Кардиология</div>
+                            <div class="dept_subtitle">Доктор Екатерина Алексеевна Штифт</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Department -->
+                <div class="col-lg-3 col-md-6 dept_col">
+                    <div class="dept">
+                        <div class="dept_image"><img src="/static/images/dept_3.jpg" alt=""></div>
+                        <div class="dept_content text-center">
+                            <div class="dept_title">Стоматология</div>
+                            <div class="dept_subtitle">Доктор Иван Федорович Бор</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Department -->
+                <div class="col-lg-3 col-md-6 dept_col">
+                    <div class="dept">
+                        <div class="dept_text">
+                            <p>Врачи Центра</p>
+                            <p>В нашей команде:</p>
+                            <p>135 докторов наук, 46 профессоров,</p>
+                            <p>236 кандидатов наук, 36 врачей высшей категории.</p>
+                        </div>
+                        <div class="button dept_button"><a href="{% url 'core:about' %}">Подробнее</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+
+    <div class="services">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section_title"><h2>Услуги нашего центра</h2></div>
+                </div>
+            </div>
+            <div class="row services_row">
+
+                <!-- Service -->
+                <div class="col-lg-4 col-md-6 service_col">
+                    <a href="{% url 'core:services' %}">
+                        <div class="service text-center trans_200">
+                            <div class="service_icon"><img class="svg" src="/static/images/service_1.svg" alt=""></div>
+                            <div class="service_title trans_200">Бесплатные осмотры</div>
+                            <div class="service_text">
+                                <p>Все граждане РФ с полисом ОМС могут обратиться в наш центр, чтобы пройти базовый
+                                    осмотр у терапевта и сдать базовые анализы.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Service -->
+                <div class="col-lg-4 col-md-6 service_col">
+                    <a href="{% url 'core:services' %}">
+                        <div class="service text-center trans_200">
+                            <div class="service_icon"><img class="svg" src="/static/images/service_2.svg" alt=""></div>
+                            <div class="service_title trans_200">Скрининг тесты</div>
+                            <div class="service_text">
+                                <p>Процедуры, которые помогают выявить потенциальные заболевания у людей, не имеющих
+                                    симптомов болезни.
+                                    Цель — снизить риск заболевания.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Service -->
+                <div class="col-lg-4 col-md-6 service_col">
+                    <a href="{% url 'core:services' %}">
+                        <div class="service text-center trans_200">
+                            <div class="service_icon"><img class="svg" src="/static/images/service_3.svg" alt=""></div>
+                            <div class="service_title trans_200">Рентген, КТ, МРТ, УЗИ</div>
+                            <div class="service_text">
+                                <p>Использование технологий визуализации для точной диагностики заболеваний и
+                                    мониторинга состояния пациентов с внутренними повреждениями.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Service -->
+                <div class="col-lg-4 col-md-6 service_col">
+                    <a href="{% url 'core:services' %}">
+                        <div class="service text-center trans_200">
+                            <div class="service_icon"><img class="svg" src="/static/images/service_4.svg" alt=""></div>
+                            <div class="service_title trans_200">Стоматология</div>
+                            <div class="service_text">
+                                <p>Профилактика, диагностика и лечение заболеваний полости рта, зубов, челюстей и
+                                    связанных с ними структур.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Service -->
+                <div class="col-lg-4 col-md-6 service_col">
+                    <a href="{% url 'core:services' %}">
+                        <div class="service text-center trans_200">
+                            <div class="service_icon"><img class="svg" src="/static/images/service_5.svg" alt=""></div>
+                            <div class="service_title trans_200">Неонатология</div>
+                            <div class="service_text">
+                                <p>В нашем центре работают прекрасные неонатологи, которые позаботятся о ваших
+                                    малышах.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Service -->
+                <div class="col-lg-4 col-md-6 service_col">
+                    <a href="{% url 'core:services' %}">
+                        <div class="service text-center trans_200">
+                            <div class="service_icon"><img class="svg" src="/static/images/service_6.svg" alt=""></div>
+                            <div class="service_title trans_200">Анализы</div>
+                            <div class="service_text">
+                                <p>К вашим услугам клинико-диагностическая лаборатория с большим выбором услуг.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact">
+        <div class="container">
+            <div class="row">
+
+                <!-- Contact Info -->
+                <div class="col-lg-6">
+                    <div class="section_title"><h2>Свяжитесь с нами</h2></div>
+                    <div class="contact_text">
+                        <p>Быстрая запись на приём: позвоните сейчас или заполните форму онлайн.</p>
+                        <p>Удобное время приёма и оперативная связь.</p>
+                        <p>Квалифицированные врачи ждут вас.</p>
+                    </div>
+                    <h3 class="mt-5">Контактная информация</h3>
+                    <p>Телефон: +7 495 111 222 333</p>
+                    <p>Email: info@caremed.com</p>
+                    <p class="mb-5">Адрес: г.Москва, ул.Тверская, д.13 / метро Тверская</p>
+
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-6 form_col mb-5">
+                    <div class="contact_form_container">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="{{ form.name.id_for_label }}" class="form-label">Ваше имя *</label>
+                                    {{form.name}}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                                    {{ form.email }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="{{ form.phone.id_for_label }}" class="form-label">Телефон *</label>
+                                    {{form.phone}}
+                                </div>
+                                <div class="col-12">
+                                    <label for="{{ form.message.id_for_label }}" class="form-label">Сообщение</label>
+                                    {{form.message}}
+                                </div>
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-primary mt-4">Отправить</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+

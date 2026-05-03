@@ -1,0 +1,42 @@
+<style>
+        body
+
+        .menuItem .menu {
+        font-size: 20px;
+        font-weight: 600;
+        list-style: none;
+        padding: 0 0 15px;
+        margin-bottom: 20px;
+        display: inline-block;
+        color: #10cdff;
+        }
+        .menuItem .menu li {
+        padding: 16px 30px 0px;
+        margin-bottom: 0;
+        display: inline-block;
+        width: 100%;
+        float: left;
+        background: #ffffff;
+        line-height: 30px;
+        border-left: 2px solid #10cdff;
+        border-radius: 0;
+        }
+        .menuItem .detail {
+        font-size: 13px;
+        color: #444;
+        font-weight: normal;
+        }
+        .menuItem .price {
+        font-size: 13px;
+        float: right;
+        font-weight: 600;
+        }
+        .menuItem .btn {
+        text-align: center;
+        color: #FFFFFF;
+        background: #10cdff;
+        border-color: #10cdff;
+        width: 120px;
+        border-radius: 0;
+        }
+    </style>

@@ -1,0 +1,46 @@
+.status-badge,
+.cancel-btn {
+  height: 44px;
+  min-width: 140px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+/* Запланировано — белые буквы на зелёном фоне */
+.status-scheduled {
+  background-color: #28a745; /* зелёный */
+  color: white;
+}
+
+/* Отменено — красные буквы на светло‑сером фоне с красной окантовкой */
+.status-cancelled {
+  background-color: #f8f9fa; /* светло‑серый */
+  color: #dc3545; /* красный */
+  border-color: #dc3545; /* красная окантовка */
+}
+
+/* Завершено — белые буквы на тёмно‑сером фоне */
+.status-completed {
+  background-color: #495057; /* тёмно‑серый */
+  color: white;
+}
+
+/* Стиль для кнопки отмены */
+.cancel-btn {
+  background-color: transparent;
+  color: #dc3545; /* красный */
+  border: 2px solid #dc3545;
+}
+
+.cancel-btn:hover {
+  background-color: #dc3545;
+  color: white;
+}

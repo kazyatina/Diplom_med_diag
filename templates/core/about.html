@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>About us</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="CareMed demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/styles/bootstrap4/bootstrap.min.css">
+    <link href="/static/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/about.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/about_responsive.css">
+</head>
+<body>
+<div class="super_container">
+    {%include 'header.html'%}
+
+    <!-- Home -->
+
+    <div class="home">
+        <div class="home_background parallax-window" data-parallax="scroll" data-image-src="/static/images/about.jpg"
+             data-speed="0.8"></div>
+        <div class="home_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content">
+                            <div class="home_title">О НАС <span>CareMed</span></div>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{% url 'core:home' %}">Главная</a></li>
+                                    <li>О нас Caremed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+
+    <div class="about">
+        <div class="container">
+            <div class="row">
+
+                <!-- About Content -->
+                <div class="col-lg-8">
+                    <div class="section_title"><h2>Добро пожаловать в CareMed — ваш надёжный партнёр в
+                        заботе о здоровье!</h2></div>
+                    <div class="about_text">
+                        <p> Мы — современный медицинский диагностический центр, объединяющий передовые технологии, опыт
+                            квалифицированных специалистов и индивидуальный подход к каждому пациенту. Наша миссия —
+                            предоставлять точные и своевременные диагностические услуги, помогая предотвращать, выявлять
+                            и эффективно лечить заболевания.</p>
+
+                        <h3>Наши ценности</h3>
+                        <p>Точность. Мы используем современное оборудование экспертного класса, регулярно калибруем и
+                            обновляем его, чтобы гарантировать достоверность результатов.</p>
+                        <p>Профессионализм. В нашем центре работают врачи высшей категории, кандидаты и доктора
+                            медицинских наук с многолетним опытом в диагностике.</p>
+                        <p>Забота о пациенте. Комфорт и безопасность — наши приоритеты. Мы стремимся сделать процесс
+                            обследования максимально комфортным и понятным для каждого.</p>
+                        <p>Доступность. Мы стараемся сделать качественные диагностические услуги доступными для
+                            широкого круга пациентов, предлагая гибкие программы и прозрачные цены.</p>
+                        <p>Комплексный подход. Предлагаем не просто отдельные исследования, а комплексные программы
+                            обследования для разных возрастных групп и состояний.</p>
+
+                        <h3>Что мы предлагаем</h3>
+                        <p>В нашем центре вы можете пройти широкий спектр диагностических исследований:</p>
+                        <p>лабораторную диагностику (общеклинические, биохимические, гормональные, иммунологические
+                            анализы и др.);</p>
+                        <p>ультразвуковую диагностику (УЗИ всех органов и систем, допплерографию сосудов);</p>
+                        <p>функциональную диагностику (ЭКГ, холтеровское мониторирование, спирометрию, ЭЭГ и др.);</p>
+                        <p>лучевую диагностику (цифровую рентгенографию, компьютерную томографию (КТ),</p>
+                        <p>магнитно‑резонансную томографию (МРТ));</p>
+                        <p>эндоскопические исследования (гастроскопию, колоноскопию и др.);</p>
+                        <p>комплексные чекапы и профилактические программы для взрослых и детей.</p>
+                    </div>
+                    <div class="row loaders_container">
+                        <div class="col-md-3 loader_col">
+                            <!-- Loader -->
+                            <div class="loader" data-perc="1"><span>Профессионалов</span></div>
+                        </div>
+                        <div class="col-md-3 loader_col">
+                            <!-- Loader -->
+                            <div class="loader" data-perc="1"><span>Оборудования</span></div>
+                        </div>
+                        <div class="col-md-3 loader_col">
+                            <!-- Loader -->
+                            <div class="loader" data-perc="1"><span>Качества</span></div>
+                        </div>
+                        <div class="col-md-3 loader_col">
+                            <!-- Loader -->
+                            <div class="loader" data-perc="1"><span>Заботы</span></div>
+                        </div>
+                    </div>
+                    <div class="button about_button"><a href="{% url 'appointments:create' %}">Записаться на приём</a>
+                    </div>
+                </div>
+
+                <!-- Boxes -->
+                <div class="col-lg-4 boxes_col">
+
+                    <!-- Box -->
+                    <div class="box working_hours">
+                        <div class="box_icon d-flex flex-column align-items-start justify-content-center">
+                            <div style="width:29px; height:29px;"><img src="/static/images/alarm-clock.svg" alt=""></div>
+                        </div>
+                        <div class="box_title">Часы работы</div>
+                        <div class="working_hours_list">
+                            <ul>
+                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                    <div>Понедельник - Пятница</div>
+                                    <div class="ml-auto">8.00 – 19.00</div>
+                                </li>
+                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                    <div>Суббота</div>
+                                    <div class="ml-auto">9.30 – 17.00</div>
+                                </li>
+                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                    <div>Воскресенье</div>
+                                    <div class="ml-auto">9.30 – 15.00</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Box -->
+                    <div class="box box_appointments">
+                        <div class="box_icon d-flex flex-column align-items-start justify-content-center">
+                            <div style="width: 29px; height:29px;"><img src="/static/images/phone-call.svg" alt=""></div>
+                        </div>
+                        <div class="box_title">Запись на прием в центре</div>
+                        <div class="box_phone">+7 495 111 222 333</div>
+                        <div class="box_text">Очная консультация ведущими специалистами страны
+                        </div>
+                    </div>
+
+                    <!-- Box -->
+                    <div class="box box_emergency">
+                        <div class="box_icon d-flex flex-column align-items-start justify-content-center">
+                            <div style="width: 37px; height:37px; margin-left:-4px;"><img src="/static/images/bell.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="box_title">Неотложная помощь</div>
+                        <div class="box_phone">103 или 112</div>
+                        <div class="box_emergency_text">Если произошла ситуация опасная для жизни
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="team">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="section_title"><h2>Наша команда докторов</h2></div>
+                    </div>
+                </div>
+                <div class="row team_row">
+
+                    <!-- Team Member фиксированные карточки-->
+                    <div class="col-lg-3 team_col">
+                        <div class="team_member">
+                            <div class="team_member_image d-flex flex-column align-items-center justify-content-end">
+                                <img
+                                        src="/static/images/team_1.png" alt=""></div>
+                            <div class="team_member_info">
+                                <div class="team_member_name"><a href="#">Виктория Генриховна Стук </a></div>
+                                <div class="team_member_title">Зав.отделением Кардиологии</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member -->
+                    <div class="col-lg-3 team_col">
+                        <div class="team_member">
+                            <div class="team_member_image d-flex flex-column align-items-center justify-content-end">
+                                <img
+                                        src="/static/images/team_2.png" alt=""></div>
+                            <div class="team_member_info">
+                                <div class="team_member_name"><a href="#">Иван Адольфович Срез</a></div>
+                                <div class="team_member_title">Зав.отделением Пластической хирургии</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member -->
+                    <div class="col-lg-3 team_col">
+                        <div class="team_member">
+                            <div class="team_member_image d-flex flex-column align-items-center justify-content-end">
+                                <img
+                                        src="/static/images/team_3.png" alt=""></div>
+                            <div class="team_member_info">
+                                <div class="team_member_name"><a href="#">Наталья Карловна Род</a></div>
+                                <div class="team_member_title">Зав.отделением Неонатологии</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member -->
+                    <div class="col-lg-3 team_col">
+                        <div class="team_member">
+                            <div class="team_member_image d-flex flex-column align-items-center justify-content-end">
+                                <img
+                                        src="/static/images/team_4.png" alt=""></div>
+                            <div class="team_member_info">
+                                <div class="team_member_name"><a href="#">Фрол Никитич Нос</a></div>
+                                <div class="team_member_title">Зав. Терапевтического отделением</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Team Member -->
+                    <div class="col-lg-3 team_col">
+                        <div class="team_member">
+                            <div class="team_member_image d-flex flex-column align-items-center justify-content-end">
+                                <img
+                                        src="/static/images/team_2.png" alt=""></div>
+                            <div class="team_member_info">
+                                <div class="team_member_name"><a href="#">Акакий Захарович Зуб</a></div>
+                                <div class="team_member_title">Зав.отделением Стоматологии</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member -->
+                    <div class="col-lg-3 team_col">
+                        <div class="team_member">
+                            <div class="team_member_image d-flex flex-column align-items-center justify-content-end">
+                                <img
+                                        src="/static/images/team_3.png" alt=""></div>
+                            <div class="team_member_info">
+                                <div class="team_member_name"><a href="#">Фрида Карловна Скан</a></div>
+                                <div class="team_member_title">Зав.отделением Рентгенологии</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member -->
+                    <div class="col-lg-3 team_col">
+                        <div class="team_member">
+                            <div class="team_member_image d-flex flex-column align-items-center justify-content-end">
+                                <img
+                                        src="/static/images/team_4.png" alt=""></div>
+                            <div class="team_member_info">
+                                <div class="team_member_name"><a href="#">Антон Павлович Хруст</a></div>
+                                <div class="team_member_title">Зав.отделением Хирургии</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Team Member -->
+                    <div class="col-lg-3 team_col">
+                        <div class="team_member">
+                            <div class="team_member_image d-flex flex-column align-items-center justify-content-end">
+                                <img
+                                        src="/static/images/team_1.png" alt=""></div>
+                            <div class="team_member_info">
+                                <div class="team_member_name"><a href="#">Мадонна Ивановна Жуть</a></div>
+                                <div class="team_member_title">Зав.отделением Гинекологии</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Member если нужно подтягивать из БД-->
+        <!--                    <div class="col-12">-->
+        <!--                        <div class="row">-->
+        <!--                            {% for doctor in doctors %}-->
+        <!--                            <div class="col-md-6 col-lg-4 mb-4">-->
+        <!--                                <div class="card">-->
+        <!--                                    {% if doctor.photo %}-->
+        <!--                                    <img src="{{ doctor.photo.url }}" class="card-img-top" alt="{{ doctor.name }}"-->
+        <!--                                         style="height: 250px; object-fit: contain;">-->
+        <!--                                    {% endif %}-->
+        <!--                                    <div class="card-body">-->
+        <!--                                        <h5 class="card-title">{{ doctor.name }}</h5>-->
+        <!--                                        <p class="card-text text-muted">{{ doctor.specialty }}</p>-->
+        <!--                                    </div>-->
+        <!--                                </div>-->
+        <!--                            </div>-->
+        <!--                            {% empty %}-->
+        <!--                            <p>Врачи пока не добавлены</p>-->
+        <!--                            {% endfor %}-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+    </div>
+</div>
+{% include 'footer.html' %}
+
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<script src="/static/styles/bootstrap4/popper.js"></script>
+<script src="/static/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="/static/plugins/greensock/TweenMax.min.js"></script>
+<script src="/static/plugins/greensock/TimelineMax.min.js"></script>
+<script src="/static/plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="/static/plugins/greensock/animation.gsap.min.js"></script>
+<script src="/static/plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="/static/plugins/progressbar/progressbar.min.js"></script>
+<script src="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="/static/plugins/easing/easing.js"></script>
+<script src="/static/plugins/parallax-js-master/parallax.min.js"></script>
+<script src="/static/js/about.js"></script>
+</body>
+</html>

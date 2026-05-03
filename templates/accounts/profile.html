@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>Личный кабинет</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="CareMed demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/styles/bootstrap4/bootstrap.min.css">
+    <link href="/static/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/services.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/services_responsive.css">
+    <link rel="stylesheet" href="/static/css/appointment.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+<body>
+
+<div class="super_container">
+
+    {%include 'header.html'%}
+
+    <!-- Home -->
+
+    <div class="home">
+        <div class="home_background parallax-window" data-parallax="scroll" data-image-src="/static/images/services.jpg"
+             data-speed="0.8"></div>
+        <div class="home_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content">
+                            <div class="home_title"><span>CareMed</span> Личный кабинет</div>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{% url 'core:home' %}">Главная</a></li>
+                                    <li>Личный кабинет</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col">
+                    <div class="section_title"><h2>Личный кабинет, {{ profile.full_name }}</h2></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                        <i class="bi bi-person"></i> Мой профиль
+                    </a>
+                    <a href="{% url 'appointments:create' %}" class="list-group-item list-group-item-action">
+                        <i class="bi bi-plus-circle"></i> Новая запись
+                    </a>
+                    <a
+                            href="#"
+                            class="list-group-item list-group-item-action"
+                            data-bs-toggle="modal"
+                            data-bs-target="#medicalHistoryModal"
+                    >
+                        <i class="bi bi-file-medical"></i> Медицинская история
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <!-- Информация о профиле -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Основная информация</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-5">
+                            <div class="col-md-6">
+                                <strong>Имя:</strong> {{ profile.full_name }}
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Тип аккаунта:</strong>
+                                {% if profile.user_type == 'patient' %}Пациент{% endif %}
+                                {% if profile.user_type == 'doctor' %}Врач{% endif %}
+                                {% if profile.user_type == 'admin_staff' %}Административный персонал{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Телефон:</strong>
+                                {% if profile.phone %}
+                                {{ profile.phone }}
+                                {% else %}
+                                Не указан
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Дата рождения:</strong>
+                                {% if profile.birth_date %}
+                                {{profile.birth_date|date:"d.m.Y"}}
+                                {% else %}
+                                Не указана
+                                {% endif %}
+                            </div>
+                            <div class="col-12">
+                                <strong>Адрес:</strong>
+                                {% if profile.address %}
+                                {{ profile.address }}
+                                {% else %}
+                                Не указан
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Блок с аватаром (справа) -->
+            <div class="col-md-4 text-center">
+                <div class="avatar-container mb-3">
+                    {% if profile.avatar %}
+                    <img src="{{ profile.avatar.url }}"
+                         alt="Аватар {{ profile.full_name }}"
+                         class="rounded-circle avatar-medium"
+                         style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #0d6efd;">
+                    {% else %}
+                    <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center mx-auto"
+                         style="width: 120px; height: 120px; border: 3px solid #6c757d;">
+                        <span class="text-white fs-4">{{ profile.full_name|slice:":1" }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+                <!-- Кнопка загрузки аватара -->
+                <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#avatarModal">
+                    Изменить фото
+                </button>
+            </div>
+
+            <!-- Форма обновления профиля -->
+            <div class="container my-5">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white py-3">
+                        <h5 class="mb-0 text-center">Обновление профиля</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <div class="row g-4 mb-3">
+                                <!-- Имя и Фамилия (в одной строке) -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ form.first_name.id_for_label }}"
+                                           class="form-label fw-semibold">Имя</label>
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="{{ form.first_name.id_for_label }}"
+                                            name="{{ form.first_name.html_name }}"
+                                            value="{{ form.first_name.value|default_if_none:'' }}"
+                                    >
+                                    {% if form.first_name.errors %}
+                                    <div class="text-danger small mt-1">{{ form.first_name.errors }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ form.last_name.id_for_label }}" class="form-label fw-semibold">Фамилия</label>
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="{{ form.last_name.id_for_label }}"
+                                            name="{{ form.last_name.html_name }}"
+                                            value="{{ form.last_name.value|default_if_none:'' }}"
+                                    >
+                                    {% if form.last_name.errors %}
+                                    <div class="text-danger small mt-1">{{ form.last_name.errors }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Телефон и дата рождения (в одной строке) -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ form.phone.id_for_label }}"
+                                           class="form-label fw-semibold">Телефон</label>
+                                    {{ form.phone }}
+                                    {% if form.phone.errors %}
+                                    <div class="text-danger small mt-1">{{ form.phone.errors }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ form.birth_date.id_for_label }}" class="form-label fw-semibold">Дата
+                                        рождения</label>
+                                    {{ form.birth_date }}
+                                    {% if form.birth_date.errors %}
+                                    <div class="text-danger small mt-1">{{ form.birth_date.errors }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Адрес (на всю ширину, компактный) -->
+                                <div class="col-12 mb-3">
+                                    <label for="{{ form.address.id_for_label }}"
+                                           class="form-label fw-semibold">Адрес</label>
+                                    <textarea
+                                            id="{{ form.address.id_for_label }}"
+                                            name="{{ form.address.html_name }}"
+                                            class="form-control"
+                                            rows="3"
+                                            placeholder="Введите адрес..."
+                                    >{{ form.address.value|default_if_none:'' }}</textarea>
+                                    {% if form.address.errors %}
+                                    <div class="text-danger small mt-1">{{ form.address.errors }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Медицинская история (на всю ширину, компактный) -->
+                                <div class="col-12 mb-3">
+                                    <label for="{{ form.medical_history.id_for_label }}" class="form-label fw-semibold">Медицинская
+                                        история</label>
+                                    <textarea
+                                            id="{{ form.medical_history.id_for_label }}"
+                                            name="{{ form.medical_history.html_name }}"
+                                            class="form-control"
+                                            rows="3"
+                                            placeholder="Информация о хронических заболеваниях, аллергиях и т.д."
+                                    >{{ form.medical_history.value|default_if_none:'' }}</textarea>
+                                    {% if form.medical_history.errors %}
+                                    <div class="text-danger small mt-1">{{ form.medical_history.errors }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Экстренный контакт -->
+                                <div class="col-12 mb-3">
+                                    <label for="{{ form.emergency_contact.id_for_label }}"
+                                           class="form-label fw-semibold">Экстренный контакт</label>
+                                    {{ form.emergency_contact }}
+                                    <small class="text-muted d-block mt-1">Имя и телефон для экстренных случаев</small>
+                                    {% if form.emergency_contact.errors %}
+                                    <div class="text-danger small mt-1">{{ form.emergency_contact.errors }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Аватар -->
+                                <div class="col-12 mb-3">
+                                    <label for="{{ form.avatar.id_for_label }}"
+                                           class="form-label fw-semibold">Аватар</label>
+                                    {{ form.avatar }}
+                                    <small class="text-muted d-block mt-1">Загрузите новое фото профиля (JPG/PNG, до
+                                        2.МБ)</small>
+                                    {% if form.avatar.errors %}
+                                    <div class="text-danger small mt-1">{{ form.avatar.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- Кнопка сохранения -->
+                            <div class="mt-4 d-grid gap-2">
+                                <button type="submit" class="btn btn-success btn-lg px-4 py-2">
+                                    <i class="bi bi-save me-2"></i>Сохранить изменения
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Ближайшие записи -->
+            {% if appointments %}
+            <div class="container mb-5">
+                <div class="card mt-4">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">Ближайшие записи</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            {% for appt in appointments %}
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <strong>{{ appt.service.title }}</strong><br>
+                                        Врач: {{ appt.doctor.name }}<br>
+                                        Дата: {{ appt.date|date:"d.m.Y" }}, {{ appt.time|time:"H:i" }}
+                                    </div>
+
+                                    <div class="text-end d-flex gap-2 justify-content-end">
+                                        {% if appt.status == 'scheduled' %}
+                                        <span class="status-badge status-scheduled" style="margin-right: 1rem;">Запланировано</span>
+                                        <button
+                                                type="button"
+                                                class="cancel-btn"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#cancelAppointmentModal"
+                                                data-appointment-id="{{ appt.id }}"
+                                                data-service-title="{{ appt.service.title }}"
+                                        >
+                                            Отменить запись
+                                        </button>
+                                        {% elif appt.status == 'cancelled' %}
+                                        <span class="status-badge status-cancelled">Отменено</span>
+                                        {% else %}
+                                        <span class="status-badge status-completed">Завершено</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="container mb-5">
+            <div class="card mt-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Ближайшие записи</h5>
+                </div>
+            </div>
+            <div class="col-12">
+                <p class="text-muted">Записей пока нет.</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Модальное окно для загрузки аватара -->
+<div class="modal fade" id="avatarModal" tabindex="-1" aria-labelledby="avatarModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="avatarModalLabel">Загрузить новый аватар</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <form method="post" enctype="multipart/form-data" id="avatarForm"
+                  data-update-avatar-url="{% url 'accounts:update_avatar' %}">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="avatarInput" class="form-label">Выберите изображение (JPG/PNG, до
+                            2.МБ)</label>
+                        <input class="form-control" type="file" id="avatarInput" name="avatar"
+                               accept="image/jpeg,image/png" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена
+                    </button>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для истории записей -->
+<div
+        class="modal fade"
+        id="medicalHistoryModal"
+        tabindex="-1"
+        aria-labelledby="medicalHistoryLabel"
+        aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="medicalHistoryLabel">Медицинская история</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Дата и время</th>
+                        <th>Услуга</th>
+                        <th>Врач</th>
+                    </tr>
+                    </thead>
+                    <tbody id="historyRecords">
+                    <!-- Должны динамически подгружаться записи, но нет-->
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно отмены записи -->
+<div class="modal fade" id="cancelAppointmentModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Подтверждение отмены</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Вы уверены, что хотите отменить запись
+                <strong id="modalServiceTitle"></strong>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                <button
+                        type="button"
+                        class="cancel-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#cancelAppointmentModal"
+                        data-appointment-id="{{ appt.id }}"
+                        data-service-title="{{ appt.service.title }}"
+                >
+                    Отменить запись
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% include 'footer.html' %}
+
+<script>const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;</script>
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<script src="/static/styles/bootstrap4/popper.js"></script>
+<script src="/static/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="/static/plugins/easing/easing.js"></script>
+<script src="/static/plugins/parallax-js-master/parallax.min.js"></script>
+<script src="/static/js/services.js"></script>
+<script src="{% static 'js/medical_modal.js' %}"></script>
+{% csrf_token %}
+<script src="/static/js/appointment_cancel.js"></script>
+</body>
+</html>
